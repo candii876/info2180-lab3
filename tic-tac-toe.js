@@ -17,7 +17,7 @@ window.onload = function(){
     
     const classX = 'X';
     const classO = 'O';
-    //let gameOn = true;
+    //let gameOn = true; //gonna help with restarting
 
     //Exercise 1 - Layout the board
     let layout = document.querySelectorAll("#board div");
@@ -49,7 +49,6 @@ window.onload = function(){
     }
     layout.forEach(cell =>{
         cell.addEventListener('click', playerTurn, {once: true});
-        //currentPlayer = classX ? square.classList.add('.square.X') : square.classList.add('square.O'); //not working
     });
 
     function playerTurn() {
@@ -61,20 +60,20 @@ window.onload = function(){
     }
     //DO NOT TOUCH ABOVE UNLESS IT IS A COMMENT!!!
 
-    //switching players
-    let currentBoard = [];
+    //status display
+    /* var status = document.querySelector('#status');
+    status.innerHTML= playerTurn();*/
 
         /*if (currentPlayer == 'x'){
             player.classList.add('square.X');
         }
         else{
             player.classList.add('.square.O');
-        }*/
-        /*var status = document.querySelector('#status');
-        status.innerHTML= playerTurn();
-    }*/
-     
-    
+        }
+
+        ||
+        
+        currentPlayer = classX ? square.classList.add('.square.X') : square.classList.add('square.O'); */
 
     //play X or O
     /*function handleClick(e){
