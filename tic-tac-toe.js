@@ -13,10 +13,12 @@ window.onload = function(){
     [3,4,5]
     [6,7,8]*/
 
-    var winList = [[0,1,2], [0,3,6], [0,4,8], [1,4,7], [2,5,8], [2,4,6], [3,4,5], [6,7,8]]
+    let winList = [[0,1,2], [0,3,6], [0,4,8], [1,4,7], [2,5,8], [2,4,6], [3,4,5], [6,7,8]];
+    let currentBoard = [];
     
-    const classX = 'X';
-    const classO = 'O';
+    const classX = document.getElementsByClassName('.square.X').innerHTML= 'X';
+    const classO = document.getElementsByClassName('.square.O').innerHTML= 'O';
+    let playX
     //let gameOn = true; //gonna help with restarting
 
     //Exercise 1 - Layout the board
@@ -24,13 +26,17 @@ window.onload = function(){
     let currentPlayer = 'X';
     for(let i=0; i<layout.length; i++){
         layout[i].classList.add('square');
-        currentPlayer == classX ? layout[i].classList.add('.square.X') : layout[i].classList.add('.square.O');
+        
+        //currentPlayer == classX ? layout[i].classList.add('.square.X') : layout[i].classList.add('.square.O');
         //can also try layout[i].className="square";
 
         //test
         layout[i].addEventListener('click', function(){
             console.log(`You just clicked square ${i}! `);
+            //layout[i].innerHTML
+            currentBoard[i]= currentPlayer;
             switchPlayer();
+            console.log(currentBoard);
         });
 
         //Exercise 3 - "hover" COMPLETE
@@ -51,7 +57,7 @@ window.onload = function(){
         cell.addEventListener('click', playerTurn, {once: true});
     });
 
-    function playerTurn() {
+    function playerTurn(e) {
         return `It's ${currentPlayer}'s turn!`;
     }
     function switchPlayer(){
@@ -60,6 +66,10 @@ window.onload = function(){
     }
     //DO NOT TOUCH ABOVE UNLESS IT IS A COMMENT!!!
 
+    
+    /*function placeMark(cell, currentClass){
+        cell.classList.add(currentClass);
+    }*/
     //status display
     /* var status = document.querySelector('#status');
     status.innerHTML= playerTurn();*/
