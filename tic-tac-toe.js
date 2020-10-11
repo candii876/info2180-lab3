@@ -15,10 +15,14 @@ window.onload = function(){
 
     let winList = [[0,1,2], [0,3,6], [0,4,8], [1,4,7], [2,5,8], [2,4,6], [3,4,5], [6,7,8]];
     let currentBoard = [];
+    /*want to add x's and o's to the list
+    then compare the placement of x's or o's with the index combinations in the winList
+    so for instance, if x is in currentBoard[0], currentBoard[3] and currentBoard[6], then x wins
+    if this is possible*/
     
     const classX = document.getElementsByClassName('.square.X').innerHTML= 'X';
     const classO = document.getElementsByClassName('.square.O').innerHTML= 'O';
-    let playX
+    //let playX
     //let gameOn = true; //gonna help with restarting
 
     //Exercise 1 - Layout the board
@@ -33,8 +37,9 @@ window.onload = function(){
         //test
         layout[i].addEventListener('click', function(){
             console.log(`You just clicked square ${i}! `);
-            //layout[i].innerHTML
-            currentBoard[i]= currentPlayer;
+            layout[i].textContent = currentPlayer; //display X and O
+            //currentBoard[i] != null ? //if function for the event that the spot is taken
+            currentBoard[i] = currentPlayer; //logs play to currentBoard list
             switchPlayer();
             console.log(currentBoard);
         });
@@ -48,6 +53,7 @@ window.onload = function(){
         });
     }
     console.log('game has loaded');
+    //DO NOT TOUCH ABOVE UNLESS IT IS A COMMENT!!!
 
     //no cheating - click once
     function noCheat(){
@@ -57,14 +63,13 @@ window.onload = function(){
         cell.addEventListener('click', playerTurn, {once: true});
     });
 
-    function playerTurn(e) {
+    function playerTurn() {
         return `It's ${currentPlayer}'s turn!`;
     }
     function switchPlayer(){
         currentPlayer = currentPlayer== classX ? classO : classX;
         console.log(playerTurn());
     }
-    //DO NOT TOUCH ABOVE UNLESS IT IS A COMMENT!!!
 
     
     /*function placeMark(cell, currentClass){
