@@ -20,8 +20,8 @@ window.onload = function(){
     so for instance, if x is in currentBoard[0], currentBoard[3] and currentBoard[6], then x wins
     if this is possible*/
     
-    const classX = document.getElementsByClassName('.square.X').innerHTML= 'X';
-    const classO = document.getElementsByClassName('.square.O').innerHTML= 'O';
+    let classX = document.getElementsByClassName('.square.X').textContent= 'X';
+    let classO = document.getElementsByClassName('.square.O').textContent= 'O';
     //let playX
     //let gameOn = true; //gonna help with restarting
 
